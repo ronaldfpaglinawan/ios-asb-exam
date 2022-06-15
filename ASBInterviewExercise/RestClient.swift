@@ -12,14 +12,17 @@ class RestClient {
     var session: URLSession
     
     init() {
+        //2
         session = URLSession(configuration: .default)
     }
     
-    func apiRequest(_ request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) -> URLSessionTask {
+    func apiRequest(_ request: URLRequest, completionHandler: @escaping (Data?, URLResponse?, Error?) -> Void) {
         
+        //3
         let sessionTask = session.dataTask(with: request, completionHandler: completionHandler)
+        
+        //4
         sessionTask.resume()
-        return sessionTask
     }
     
     func cancelAllTasks() {
