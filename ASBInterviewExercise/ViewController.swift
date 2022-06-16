@@ -79,8 +79,10 @@ class ViewController: UIViewController {
         return dateFormatter.date(from: dateString)
     }
     
-    func dateToString() {
-        
+    func dateToString(date: Date) -> String {
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "MMM d, yyyy h:mm:ss a"
+        return dateFormatter.string(from: date)
     }
     
     func sortData() {
@@ -89,6 +91,7 @@ class ViewController: UIViewController {
             $0.transactionDate.compare($1.transactionDate) == .orderedDescending
         })
         
+        var tempDate = Date()
         for item in decodedData {
             //print("sorted item: \(item)")
             
@@ -96,7 +99,11 @@ class ViewController: UIViewController {
             if let convertedDate = stringToDate(dateString: item.transactionDate) {
                 //print("transactionDate: \(item.transactionDate)")
                 print("convertedDate: \(convertedDate)")
+                tempDate = convertedDate
             }
+            
+            let stringDate = dateToString(date: tempDate)
+            print("stringDate: \(stringDate)")
         }
     }
 }
