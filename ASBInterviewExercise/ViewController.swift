@@ -10,7 +10,7 @@ import UIKit
 class ViewController: UIViewController {
 
     // MARK: - Outlets
-    @IBOutlet weak var demoTextView: UITextView!
+    @IBOutlet weak var clientTableView: UITableView!
     
     
     // MARK: - Properties
@@ -22,8 +22,6 @@ class ViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
-        
-        demoTextView.text = ""
         consumeAPI()
     }
 
@@ -64,7 +62,7 @@ class ViewController: UIViewController {
             
             //-- for testing only (displaying in textView)
             DispatchQueue.main.async {
-                self.demoTextView.text = self.decodedData[0].transactionDate
+                //self.demoTextView.text = self.decodedData[0].transactionDate
             }
             //---
             
@@ -90,21 +88,52 @@ class ViewController: UIViewController {
         decodedData = decodedData.sorted(by: {
             $0.transactionDate.compare($1.transactionDate) == .orderedDescending
         })
-        
+        //print("sorted decodedData: \(decodedData)")
         var tempDate = Date()
         for item in decodedData {
-            //print("sorted item: \(item)")
+            print("sorted item: \(item)")
             
             // convert the date String transactionDate to Date format
             if let convertedDate = stringToDate(dateString: item.transactionDate) {
                 //print("transactionDate: \(item.transactionDate)")
-                print("convertedDate: \(convertedDate)")
+                //print("convertedDate: \(convertedDate)")
                 tempDate = convertedDate
             }
             
             let stringDate = dateToString(date: tempDate)
-            print("stringDate: \(stringDate)")
+            //print("stringDate: \(stringDate)")
+        }
+        
+        // reload the tableView
+        DispatchQueue.main.async {
+            self.clientTableView.reloadData()
         }
     }
 }
 
+
+// MARK: - UITableViewDataSource
+extension ViewController: UITableViewDataSource {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        return decodedData.count
+    }
+    
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "clientCell", for: indexPath) as? customTableViewCell else {
+            return UITableViewCell()
+        }
+        
+        cell.dateLabel.text = decodedData[indexPath.row].transactionDate
+        cell.summaryLabel.text = decodedData[indexPath.row].summary
+        cell.idLabel.text = String(decodedData[indexPath.row].id)
+        
+        return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+extension ViewController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        print("tapped at indexPath: \(indexPath.row)")
+    }
+}
