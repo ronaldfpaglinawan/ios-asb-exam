@@ -9,6 +9,7 @@
 /* Begin PBXBuildFile section */
 		140156D8285AA64000278C36 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140156D7285AA64000278C36 /* Client.swift */; };
 		140156DE285C229500278C36 /* customTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140156DD285C229500278C36 /* customTableViewCell.swift */; };
+		140156E0285C2E3000278C36 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140156DF285C2E3000278C36 /* DetailViewController.swift */; };
 		DCF7BB0426B23DFF00AE0E0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7BB0326B23DFF00AE0E0E /* AppDelegate.swift */; };
 		DCF7BB0626B23DFF00AE0E0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7BB0526B23DFF00AE0E0E /* SceneDelegate.swift */; };
 		DCF7BB0826B23DFF00AE0E0E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7BB0726B23DFF00AE0E0E /* ViewController.swift */; };
@@ -42,6 +43,7 @@
 /* Begin PBXFileReference section */
 		140156D7285AA64000278C36 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		140156DD285C229500278C36 /* customTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTableViewCell.swift; sourceTree = "<group>"; };
+		140156DF285C2E3000278C36 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		DCF7BB0026B23DFE00AE0E0E /* ASBInterviewExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ASBInterviewExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCF7BB0326B23DFF00AE0E0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCF7BB0526B23DFF00AE0E0E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -128,6 +130,7 @@
 				DCF7BB3626B23EB800AE0E0E /* RestClient.swift */,
 				DCF7BB3826B23ED000AE0E0E /* DIManager.swift */,
 				140156DD285C229500278C36 /* customTableViewCell.swift */,
+				140156DF285C2E3000278C36 /* DetailViewController.swift */,
 			);
 			path = ASBInterviewExercise;
 			sourceTree = "<group>";
@@ -293,6 +296,7 @@
 				DCF7BB0426B23DFF00AE0E0E /* AppDelegate.swift in Sources */,
 				DCF7BB0626B23DFF00AE0E0E /* SceneDelegate.swift in Sources */,
 				DCF7BB3926B23ED000AE0E0E /* DIManager.swift in Sources */,
+				140156E0285C2E3000278C36 /* DetailViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
