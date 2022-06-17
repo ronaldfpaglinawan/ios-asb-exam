@@ -11,7 +11,7 @@ class customTableViewCell: UITableViewCell {
 
     @IBOutlet weak var dateLabel: UILabel!
     @IBOutlet weak var summaryLabel: UILabel!
-    @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var debitCreditLabel: UILabel!
     
     
     override func awakeFromNib() {

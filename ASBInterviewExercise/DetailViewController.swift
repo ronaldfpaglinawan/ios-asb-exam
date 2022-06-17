@@ -16,24 +16,40 @@ class DetailViewController: UIViewController {
     
     
     // MARK: - Properties
+    var detailInfo: Client?
     
     
     // MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+        
+        populateLabels()
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    
+    // MARK: - Custom Methods
+    func populateLabels() {
+        guard let details = detailInfo else {return}
+        print("details: \(details)")
+        
+        var tempDate = Date()
+        // convert String to Date format
+        if let convertedDate = String.stringToDate(dateString: details.transactionDate) {
+            tempDate = convertedDate
+        }
+        // convert Date to String format
+        let stringDate = String.dateToString(date: tempDate)
+        
+        
+        dateLabel.text = stringDate
+        summaryLabel.text = details.summary
+        
+        if details.debit != 0.0 {
+            debitCreditLabel.text = String(format: "+$%.2f", details.debit)
+            debitCreditLabel.textColor = .systemGreen
+        } else {
+            debitCreditLabel.text = String(format: "-$%.2f", details.credit)
+            debitCreditLabel.textColor = .systemRed
+        }
     }
-    */
-
 }

@@ -10,9 +10,10 @@
 		140156D8285AA64000278C36 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140156D7285AA64000278C36 /* Client.swift */; };
 		140156DE285C229500278C36 /* customTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140156DD285C229500278C36 /* customTableViewCell.swift */; };
 		140156E0285C2E3000278C36 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140156DF285C2E3000278C36 /* DetailViewController.swift */; };
+		140156E2285C93AB00278C36 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140156E1285C93AB00278C36 /* StringExtension.swift */; };
 		DCF7BB0426B23DFF00AE0E0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7BB0326B23DFF00AE0E0E /* AppDelegate.swift */; };
 		DCF7BB0626B23DFF00AE0E0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7BB0526B23DFF00AE0E0E /* SceneDelegate.swift */; };
-		DCF7BB0826B23DFF00AE0E0E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7BB0726B23DFF00AE0E0E /* ViewController.swift */; };
+		DCF7BB0826B23DFF00AE0E0E /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7BB0726B23DFF00AE0E0E /* TransactionsViewController.swift */; };
 		DCF7BB0B26B23DFF00AE0E0E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCF7BB0926B23DFF00AE0E0E /* Main.storyboard */; };
 		DCF7BB0D26B23E0200AE0E0E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DCF7BB0C26B23E0200AE0E0E /* Assets.xcassets */; };
 		DCF7BB1026B23E0200AE0E0E /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DCF7BB0E26B23E0200AE0E0E /* LaunchScreen.storyboard */; };
@@ -44,10 +45,11 @@
 		140156D7285AA64000278C36 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
 		140156DD285C229500278C36 /* customTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTableViewCell.swift; sourceTree = "<group>"; };
 		140156DF285C2E3000278C36 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
+		140156E1285C93AB00278C36 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
 		DCF7BB0026B23DFE00AE0E0E /* ASBInterviewExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ASBInterviewExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCF7BB0326B23DFF00AE0E0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCF7BB0526B23DFF00AE0E0E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		DCF7BB0726B23DFF00AE0E0E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		DCF7BB0726B23DFF00AE0E0E /* TransactionsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionsViewController.swift; sourceTree = "<group>"; };
 		DCF7BB0A26B23DFF00AE0E0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		DCF7BB0C26B23E0200AE0E0E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DCF7BB0F26B23E0200AE0E0E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -122,7 +124,7 @@
 				140156D6285AA5FC00278C36 /* Models */,
 				DCF7BB0326B23DFF00AE0E0E /* AppDelegate.swift */,
 				DCF7BB0526B23DFF00AE0E0E /* SceneDelegate.swift */,
-				DCF7BB0726B23DFF00AE0E0E /* ViewController.swift */,
+				DCF7BB0726B23DFF00AE0E0E /* TransactionsViewController.swift */,
 				DCF7BB0926B23DFF00AE0E0E /* Main.storyboard */,
 				DCF7BB0C26B23E0200AE0E0E /* Assets.xcassets */,
 				DCF7BB0E26B23E0200AE0E0E /* LaunchScreen.storyboard */,
@@ -131,6 +133,7 @@
 				DCF7BB3826B23ED000AE0E0E /* DIManager.swift */,
 				140156DD285C229500278C36 /* customTableViewCell.swift */,
 				140156DF285C2E3000278C36 /* DetailViewController.swift */,
+				140156E1285C93AB00278C36 /* StringExtension.swift */,
 			);
 			path = ASBInterviewExercise;
 			sourceTree = "<group>";
@@ -290,10 +293,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCF7BB3726B23EB800AE0E0E /* RestClient.swift in Sources */,
-				DCF7BB0826B23DFF00AE0E0E /* ViewController.swift in Sources */,
+				DCF7BB0826B23DFF00AE0E0E /* TransactionsViewController.swift in Sources */,
 				140156DE285C229500278C36 /* customTableViewCell.swift in Sources */,
 				140156D8285AA64000278C36 /* Client.swift in Sources */,
 				DCF7BB0426B23DFF00AE0E0E /* AppDelegate.swift in Sources */,
+				140156E2285C93AB00278C36 /* StringExtension.swift in Sources */,
 				DCF7BB0626B23DFF00AE0E0E /* SceneDelegate.swift in Sources */,
 				DCF7BB3926B23ED000AE0E0E /* DIManager.swift in Sources */,
 				140156E0285C2E3000278C36 /* DetailViewController.swift in Sources */,

@@ -7,7 +7,7 @@
 
 import UIKit
 
-class ViewController: UIViewController {
+class TransactionsViewController: UIViewController {
 
     // MARK: - Outlets
     @IBOutlet weak var clientTableView: UITableView!
@@ -21,7 +21,7 @@ class ViewController: UIViewController {
     // MARK: - Life Cycle Methods
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        
         consumeAPI()
     }
 
@@ -45,7 +45,6 @@ class ViewController: UIViewController {
                 }
                 
                 if let safeData = data {
-                    //let dataString = String(data: safeData, encoding: .utf8)
                     self.parseJSON(clientData: safeData)
                 }
             }
@@ -57,30 +56,10 @@ class ViewController: UIViewController {
         do {
             decodedData = try decoder.decode([Client].self, from: clientData)
             
-            // call sortData function
             sortData()
-            
-            //-- for testing only (displaying in textView)
-            DispatchQueue.main.async {
-                //self.demoTextView.text = self.decodedData[0].transactionDate
-            }
-            //---
-            
         } catch {
             print(error)
         }
-    }
-    
-    func stringToDate(dateString: String) -> Date? {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss"
-        return dateFormatter.date(from: dateString)
-    }
-    
-    func dateToString(date: Date) -> String {
-        let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "MMM d, yyyy h:mm:ss a"
-        return dateFormatter.string(from: date)
     }
     
     func sortData() {
@@ -88,21 +67,6 @@ class ViewController: UIViewController {
         decodedData = decodedData.sorted(by: {
             $0.transactionDate.compare($1.transactionDate) == .orderedDescending
         })
-        //print("sorted decodedData: \(decodedData)")
-        var tempDate = Date()
-        for item in decodedData {
-            print("sorted item: \(item)")
-            
-            // convert the date String transactionDate to Date format
-            if let convertedDate = stringToDate(dateString: item.transactionDate) {
-                //print("transactionDate: \(item.transactionDate)")
-                //print("convertedDate: \(convertedDate)")
-                tempDate = convertedDate
-            }
-            
-            let stringDate = dateToString(date: tempDate)
-            //print("stringDate: \(stringDate)")
-        }
         
         // reload the tableView
         DispatchQueue.main.async {
@@ -113,7 +77,7 @@ class ViewController: UIViewController {
 
 
 // MARK: - UITableViewDataSource
-extension ViewController: UITableViewDataSource {
+extension TransactionsViewController: UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return decodedData.count
     }
@@ -123,17 +87,41 @@ extension ViewController: UITableViewDataSource {
             return UITableViewCell()
         }
         
-        cell.dateLabel.text = decodedData[indexPath.row].transactionDate
+        var tempDate = Date()
+        // convert String to Date format
+        if let convertedDate = String.stringToDate(dateString: decodedData[indexPath.row].transactionDate) {
+            tempDate = convertedDate
+        }
+        // convert Date to String format
+        let stringDate = String.dateToString(date: tempDate)
+        
+        cell.dateLabel.text = stringDate
         cell.summaryLabel.text = decodedData[indexPath.row].summary
-        cell.idLabel.text = String(decodedData[indexPath.row].id)
+        
+        
+        if decodedData[indexPath.row].debit != 0.0 {
+            cell.debitCreditLabel.text = String(format: "+$%.2f", decodedData[indexPath.row].debit)
+            cell.debitCreditLabel.textColor = .systemGreen
+        } else {
+            cell.debitCreditLabel.text = String(format: "-$%.2f", decodedData[indexPath.row].credit)
+            cell.debitCreditLabel.textColor = .systemRed
+        }
         
         return cell
     }
 }
 
+
 // MARK: - UITableViewDelegate
-extension ViewController: UITableViewDelegate {
+extension TransactionsViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        print("tapped at indexPath: \(indexPath.row)")
+        
+        tableView.deselectRow(at: indexPath, animated: true)
+        let selectedTransaction = decodedData[indexPath.row]
+            
+        if let viewController = storyboard?.instantiateViewController(identifier: "DetailViewController") as? DetailViewController {
+            viewController.detailInfo = selectedTransaction
+            navigationController?.pushViewController(viewController, animated: true)
+        }
     }
 }
