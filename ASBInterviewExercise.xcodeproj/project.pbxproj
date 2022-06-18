@@ -98,6 +98,59 @@
 			path = Models;
 			sourceTree = "<group>";
 		};
+		140156E3285D672300278C36 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				140156DD285C229500278C36 /* customTableViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		140156E4285D672A00278C36 /* Controllers */ = {
+			isa = PBXGroup;
+			children = (
+				DCF7BB0726B23DFF00AE0E0E /* TransactionsViewController.swift */,
+				140156DF285C2E3000278C36 /* DetailViewController.swift */,
+			);
+			path = Controllers;
+			sourceTree = "<group>";
+		};
+		140156E5285D67D900278C36 /* AppDelegate */ = {
+			isa = PBXGroup;
+			children = (
+				DCF7BB0326B23DFF00AE0E0E /* AppDelegate.swift */,
+				DCF7BB0526B23DFF00AE0E0E /* SceneDelegate.swift */,
+			);
+			path = AppDelegate;
+			sourceTree = "<group>";
+		};
+		140156E6285D67F100278C36 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				DCF7BB0C26B23E0200AE0E0E /* Assets.xcassets */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		140156E7285D681700278C36 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				DCF7BB0926B23DFF00AE0E0E /* Main.storyboard */,
+				DCF7BB0E26B23E0200AE0E0E /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		140156E8285D683D00278C36 /* Utilities */ = {
+			isa = PBXGroup;
+			children = (
+				DCF7BB3626B23EB800AE0E0E /* RestClient.swift */,
+				DCF7BB3826B23ED000AE0E0E /* DIManager.swift */,
+				140156E1285C93AB00278C36 /* StringExtension.swift */,
+			);
+			path = Utilities;
+			sourceTree = "<group>";
+		};
 		DCF7BAF726B23DFE00AE0E0E = {
 			isa = PBXGroup;
 			children = (
@@ -121,19 +174,14 @@
 		DCF7BB0226B23DFF00AE0E0E /* ASBInterviewExercise */ = {
 			isa = PBXGroup;
 			children = (
-				140156D6285AA5FC00278C36 /* Models */,
-				DCF7BB0326B23DFF00AE0E0E /* AppDelegate.swift */,
-				DCF7BB0526B23DFF00AE0E0E /* SceneDelegate.swift */,
-				DCF7BB0726B23DFF00AE0E0E /* TransactionsViewController.swift */,
-				DCF7BB0926B23DFF00AE0E0E /* Main.storyboard */,
-				DCF7BB0C26B23E0200AE0E0E /* Assets.xcassets */,
-				DCF7BB0E26B23E0200AE0E0E /* LaunchScreen.storyboard */,
 				DCF7BB1126B23E0200AE0E0E /* Info.plist */,
-				DCF7BB3626B23EB800AE0E0E /* RestClient.swift */,
-				DCF7BB3826B23ED000AE0E0E /* DIManager.swift */,
-				140156DD285C229500278C36 /* customTableViewCell.swift */,
-				140156DF285C2E3000278C36 /* DetailViewController.swift */,
-				140156E1285C93AB00278C36 /* StringExtension.swift */,
+				140156E5285D67D900278C36 /* AppDelegate */,
+				140156D6285AA5FC00278C36 /* Models */,
+				140156E3285D672300278C36 /* Views */,
+				140156E4285D672A00278C36 /* Controllers */,
+				140156E8285D683D00278C36 /* Utilities */,
+				140156E6285D67F100278C36 /* Resources */,
+				140156E7285D681700278C36 /* Storyboards */,
 			);
 			path = ASBInterviewExercise;
 			sourceTree = "<group>";
