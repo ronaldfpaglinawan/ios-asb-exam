@@ -7,10 +7,12 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		140156D8285AA64000278C36 /* Client.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140156D7285AA64000278C36 /* Client.swift */; };
+		140156D8285AA64000278C36 /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140156D7285AA64000278C36 /* Transaction.swift */; };
 		140156DE285C229500278C36 /* customTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140156DD285C229500278C36 /* customTableViewCell.swift */; };
 		140156E0285C2E3000278C36 /* DetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140156DF285C2E3000278C36 /* DetailViewController.swift */; };
 		140156E2285C93AB00278C36 /* StringExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140156E1285C93AB00278C36 /* StringExtension.swift */; };
+		140156EB285D934300278C36 /* TransactionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140156EA285D934300278C36 /* TransactionViewModel.swift */; };
+		140156ED285DA3C000278C36 /* ObservableObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = 140156EC285DA3C000278C36 /* ObservableObject.swift */; };
 		DCF7BB0426B23DFF00AE0E0E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7BB0326B23DFF00AE0E0E /* AppDelegate.swift */; };
 		DCF7BB0626B23DFF00AE0E0E /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7BB0526B23DFF00AE0E0E /* SceneDelegate.swift */; };
 		DCF7BB0826B23DFF00AE0E0E /* TransactionsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCF7BB0726B23DFF00AE0E0E /* TransactionsViewController.swift */; };
@@ -42,10 +44,12 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		140156D7285AA64000278C36 /* Client.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Client.swift; sourceTree = "<group>"; };
+		140156D7285AA64000278C36 /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
 		140156DD285C229500278C36 /* customTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = customTableViewCell.swift; sourceTree = "<group>"; };
 		140156DF285C2E3000278C36 /* DetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewController.swift; sourceTree = "<group>"; };
 		140156E1285C93AB00278C36 /* StringExtension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StringExtension.swift; sourceTree = "<group>"; };
+		140156EA285D934300278C36 /* TransactionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionViewModel.swift; sourceTree = "<group>"; };
+		140156EC285DA3C000278C36 /* ObservableObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ObservableObject.swift; sourceTree = "<group>"; };
 		DCF7BB0026B23DFE00AE0E0E /* ASBInterviewExercise.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ASBInterviewExercise.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DCF7BB0326B23DFF00AE0E0E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		DCF7BB0526B23DFF00AE0E0E /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -93,7 +97,7 @@
 		140156D6285AA5FC00278C36 /* Models */ = {
 			isa = PBXGroup;
 			children = (
-				140156D7285AA64000278C36 /* Client.swift */,
+				140156D7285AA64000278C36 /* Transaction.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -101,18 +105,11 @@
 		140156E3285D672300278C36 /* Views */ = {
 			isa = PBXGroup;
 			children = (
+				DCF7BB0726B23DFF00AE0E0E /* TransactionsViewController.swift */,
+				140156DF285C2E3000278C36 /* DetailViewController.swift */,
 				140156DD285C229500278C36 /* customTableViewCell.swift */,
 			);
 			path = Views;
-			sourceTree = "<group>";
-		};
-		140156E4285D672A00278C36 /* Controllers */ = {
-			isa = PBXGroup;
-			children = (
-				DCF7BB0726B23DFF00AE0E0E /* TransactionsViewController.swift */,
-				140156DF285C2E3000278C36 /* DetailViewController.swift */,
-			);
-			path = Controllers;
 			sourceTree = "<group>";
 		};
 		140156E5285D67D900278C36 /* AppDelegate */ = {
@@ -147,8 +144,17 @@
 				DCF7BB3626B23EB800AE0E0E /* RestClient.swift */,
 				DCF7BB3826B23ED000AE0E0E /* DIManager.swift */,
 				140156E1285C93AB00278C36 /* StringExtension.swift */,
+				140156EC285DA3C000278C36 /* ObservableObject.swift */,
 			);
 			path = Utilities;
+			sourceTree = "<group>";
+		};
+		140156E9285D6A0100278C36 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				140156EA285D934300278C36 /* TransactionViewModel.swift */,
+			);
+			path = ViewModels;
 			sourceTree = "<group>";
 		};
 		DCF7BAF726B23DFE00AE0E0E = {
@@ -178,7 +184,7 @@
 				140156E5285D67D900278C36 /* AppDelegate */,
 				140156D6285AA5FC00278C36 /* Models */,
 				140156E3285D672300278C36 /* Views */,
-				140156E4285D672A00278C36 /* Controllers */,
+				140156E9285D6A0100278C36 /* ViewModels */,
 				140156E8285D683D00278C36 /* Utilities */,
 				140156E6285D67F100278C36 /* Resources */,
 				140156E7285D681700278C36 /* Storyboards */,
@@ -343,10 +349,12 @@
 				DCF7BB3726B23EB800AE0E0E /* RestClient.swift in Sources */,
 				DCF7BB0826B23DFF00AE0E0E /* TransactionsViewController.swift in Sources */,
 				140156DE285C229500278C36 /* customTableViewCell.swift in Sources */,
-				140156D8285AA64000278C36 /* Client.swift in Sources */,
+				140156D8285AA64000278C36 /* Transaction.swift in Sources */,
+				140156ED285DA3C000278C36 /* ObservableObject.swift in Sources */,
 				DCF7BB0426B23DFF00AE0E0E /* AppDelegate.swift in Sources */,
 				140156E2285C93AB00278C36 /* StringExtension.swift in Sources */,
 				DCF7BB0626B23DFF00AE0E0E /* SceneDelegate.swift in Sources */,
+				140156EB285D934300278C36 /* TransactionViewModel.swift in Sources */,
 				DCF7BB3926B23ED000AE0E0E /* DIManager.swift in Sources */,
 				140156E0285C2E3000278C36 /* DetailViewController.swift in Sources */,
 			);

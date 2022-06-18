@@ -16,7 +16,7 @@ class DetailViewController: UIViewController {
     
     
     // MARK: - Properties
-    var detailInfo: Client?
+    var detailInfo: Transaction?
     
     
     // MARK: - Life Cycle Methods
